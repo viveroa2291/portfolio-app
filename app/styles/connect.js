@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#000',
         borderBottomWidth: .5,
         width: 150,
-        marginVertical: 10, // Adjust spacing as needed
+        marginVertical: 10
     },
     imageContainer: {
         width: 200,

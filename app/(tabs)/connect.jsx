@@ -1,6 +1,6 @@
 import {View, Text, Image, ScrollView, TouchableOpacity, Linking} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import styles from '../styles/connect'; // Adjust the path if necessary
+import styles from '../styles/connect';
 import { useWindowDimensions } from 'react-native';
 export default function ConnectScreen() { 
     const { width } = useWindowDimensions();
