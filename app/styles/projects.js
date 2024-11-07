@@ -44,22 +44,26 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 10
     },
+    lineTwo: {
+        borderBottomColor: '#ddd',
+        borderBottomWidth: 1,
+        marginTop: 15,
+        marginBottom: 10
+    },
     webview: {
         width: '100%',
         height: 200,
         marginTop: 10
     },
-    technologiesRow: {
+    technologiesRow: { 
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'flex-start',
-        marginTop: 10
     },
     badge: {
-        width: 150,
+        width: 80,
         height: 30,
         margin: 1,
-        aspectRatio: 5, // Adjust this based on your image's ratio (width/height of original image)
+        // aspectRatio: 5,
         resizeMode: 'contain'
     }
 });
