@@ -8,16 +8,22 @@ export default function StoryScreen() {
     const [items, setItems] = useState([
         {label: 'All', value: 'all'},
         {label: 'Java', value: 'java'},
-        {label: 'React.js', value: 'react'},
+        {label: 'React.js', value: 'react.js'},
         {label: 'Other', value: 'other'} 
     ]);
+    const [selectedFilter, setSelectedFilter] = useState('all');
     const handleLinkPress = (url) => {
         Linking.openURL(url);
+    }
+    const handleFilter = (newValue) => {
+        setSelectedFilter(newValue);
+        // setValue(newValue);
     }
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Here are my stories</Text>
             <DropDownPicker style={styles.picker} open={open} value={value} items={items} setOpen={setOpen} setValue={setValue} setItems={setItems} 
+            onChangeValue={(value) => handleFilter(value)}
             dropDownContainerStyle={styles.dropDownContainer}
             />
             <ScrollView style={styles.storiesScroll}>
@@ -31,7 +37,8 @@ export default function StoryScreen() {
                         { image: [require("./thumbnails/jvm.png")], category: 'Java', title: 'Java Virtual Machine (JVM)', link: 'https://medium.com/@adan_vivero/java-virtual-machine-501d00a6d1f6', description: 'The Java Virtual Machine (JVM) is a virtualized execution environment that enables Java applications to run on various different hardware devices.', date: '14 Feb 2024'},
                         { image: [require("./thumbnails/abstract.png")], category: 'Java', title: 'Abstract Classes', link: 'https://medium.com/@adan_vivero/abstract-classes-in-java-6579d0d2a9a7', description: 'An Abstract Class in Java is a class that can’t be instantiated on its own and typically functions as a blueprint for other classes.', date: '15 Feb 2024'},
                         { image: [require("./thumbnails/useState.png")], category: 'React.js', title: 'useState Hook', link: 'https://medium.com/@adan_vivero/usestate-in-react-a-simple-guide-c477fb9f839d', description: 'The ‘useState’ hook in React is used in functional components, providing a mechanism to update the component’s state.', date: '23 Feb 2024'}
-                    ].map((story, index) => (
+                    ].filter((story) => selectedFilter === 'all' || story.category.toLowerCase() === selectedFilter)
+                    .map((story, index) => (
                         <View key={index} style={styles.content}>
                             {story.image.map((stories, storyIndex) => (
                             <Image style={styles.images} key={storyIndex} source={stories}/>
