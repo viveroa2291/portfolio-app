@@ -17,7 +17,7 @@ export default function StoryScreen() {
     }
     const handleFilter = (newValue) => {
         setSelectedFilter(newValue);
-        // setValue(newValue);
+        setValue(newValue);
     }
     return (
         <View style={styles.container}>
@@ -43,10 +43,10 @@ export default function StoryScreen() {
                             {story.image.map((stories, storyIndex) => (
                             <Image style={styles.images} key={storyIndex} source={stories}/>
                             ))}
-                            <Text style={styles.category}>{story.category}</Text>
                             <Text style={styles.title} onPress={() => handleLinkPress(story.link)}>{story.title}</Text>
                             <Text style={styles.description}>{story.description}</Text>
-                            <Text style={styles.date}>{"Last Updated: " + story.date}</Text>
+                            <Text style={styles.date}>{"Last Updated: " + story.date}</Text>                            
+                            <Text style={styles.category}>{story.category}</Text>
                         </View>
                     ))}
                 </View>
