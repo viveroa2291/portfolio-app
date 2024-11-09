@@ -15,17 +15,23 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: 20
     },
+    /*
     projects: {
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-around'
     },
+    */
     project: {
-        width: '48%', 
+        width: '98%', 
+        marginLeft: 'auto',
+        marginRight: 'auto',
         marginBottom: 20,
-        padding: 10,
+        padding: 25,
         backgroundColor: '#f9f9f9',
         borderRadius: 5,
+        borderColor: 'grey',
+        borderWidth: '.5',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -52,8 +58,10 @@ const styles = StyleSheet.create({
     },
     webview: {
         width: '100%',
-        height: 200,
-        marginTop: 10
+        height: 450,
+        marginTop: 10,
+        borderWidth: '.5',
+        borderColor: 'black'
     },
     technologiesRow: { 
         flexDirection: 'row',
