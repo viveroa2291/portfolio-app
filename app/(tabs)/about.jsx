@@ -1,115 +1,45 @@
 import React, {useState} from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, Image, TextInput, Platform } from 'react-native';
+import { View, Text, Linking, StyleSheet, Image, TextInput, ScrollView, Platform } from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
-
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import styles from '../styles/about';
 
 export default function AboutScreen() {
-  const [text, setText] = useState('');
 
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={<Ionicons size={310} name="code-slash" style={styles.headerImage} />}>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
-      </ThemedView>
-      <HelloWave />
-      <ThemedText>Hello</ThemedText>
-
-      <TextInput 
-      style={{height: 40}}
-      placeholder="Type Something Here :)"
-      onChangeText={newText => setText(newText)}
-      defaultValue={text} />
-
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Custom fonts">
-        <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user's current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText> library
-          to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-    </ParallaxScrollView>
-  );
+  const handleLinkPress = (url) => {
+    Linking.openURL(url);
 }
 
-const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-});
+  return (
+    <ScrollView>
+      <ThemedText style={styles.headerText}>About</ThemedText>
+      <View style={styles.containerImage}>
+        <Image style={[styles.selfie, {borderRadius: 175}]} source={require('./images/selfie.jpeg')} resizeMode='cover' />
+      </View>
+      <Text style={styles.introduction}>Hey! I'm Adan. Take some time to dive into my about me.</Text>
+      <ThemedText style={styles.me}>Me in 20 Seconds</ThemedText>
+      <Text style={styles.aboutMe}>I've been programming since I was a senior in high school working with IOS apps, in particular with Swift. 
+      Since graduating high school, I attended the University of Wisconsin - Eau Claire in which I graduated with a bachelor's degree majoring in computer science.
+      </Text>
+      <Text style={styles.aboutMe}>
+      Since graduating college, I've had a role as a full stack java developer at Cognixia in which I worked extensively with Java along with building web applications utilizing React.js and AWS.
+            During my role at Cognixia, I've worked in a collaborative environment with others building web applications on the full stack working with databases, cloud, and API's utilizing Java's Spring framework
+            but also using AWS to host our sites and databases. 
+      </Text>
+      <Text style={styles.aboutMe}>
+      Aside from my experience, I have worked with all sorts of tech stacks. My most proficient programming languages would have to be C++, Java, Javascript, and React.js. I have also worked with C, Python, Kotlin, Typescript, React-Native, Next.js, Node.js, and PHP.
+      </Text>
+      <Text style={styles.aboutMe}>
+      In my free time, I like to build projects and learn with different technologies. I also like to engage in tech communities such as <Text style={styles.theHunt} onPress={() => handleLinkPress("https://x.com/TheHuntSpaces")}>The Hunt</Text> on X, 
+          where we discuss all tech related subjects such as the tech market, AI, and programming langauges. Aside from that, I like to create Snapchat lenses, listen to the 
+          <Text style={styles.swePodcast} onPress={() => handleLinkPress("https://open.spotify.com/show/6UO3XQclSuNnGxB39QdAnL?si=a9453dfe57b54d2a")}>Software Engineering podcast</Text>, and engage in tech related streams on Twitch.
+      </Text>
+      <Text style={styles.aboutMe}>I'm living in Chicago, Illinois.</Text>
+    </ScrollView>
+  );
+}
