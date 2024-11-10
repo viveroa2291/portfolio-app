@@ -7,6 +7,10 @@ const styles = StyleSheet.create(
             textAlign: 'center',
             marginTop: 105
         }, 
+        header: {
+            fontSize: 25,
+            textAlign: 'center'
+        },
         containerImage: {
             width: 200,
             height: 200,
@@ -38,11 +42,21 @@ const styles = StyleSheet.create(
             textAlign: 'center'
         },
         aboutMe: {
-            fontSize: 15,
+            fontSize: 14,
             marginLeft: 'auto',
             marginRight: 'auto',
             marginTop: 25,
-            width: '90%'
+            width: '85%',
+            fontFamily: 'Cochin'
+        },
+        line: {
+            width: '75%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            borderBottomColor: '#ddd',
+            borderBottomWidth: 1,
+            marginTop: 25,
+            marginBottom: 25
         }
     }
 )

@@ -14,7 +14,6 @@ export default function AboutScreen() {
   const handleLinkPress = (url) => {
     Linking.openURL(url);
 }
-
   return (
     <ScrollView>
       <ThemedText style={styles.headerText}>About</ThemedText>
@@ -40,6 +39,14 @@ export default function AboutScreen() {
           <Text style={styles.swePodcast} onPress={() => handleLinkPress("https://open.spotify.com/show/6UO3XQclSuNnGxB39QdAnL?si=a9453dfe57b54d2a")}>Software Engineering podcast</Text>, and engage in tech related streams on Twitch.
       </Text>
       <Text style={styles.aboutMe}>I'm living in Chicago, Illinois.</Text>
+      <View style={styles.line} />
+      <ThemedText style={styles.header}>My Tech Stack</ThemedText>
+      <View style={styles.line} />
+      <ThemedText style={styles.header}>Where I've Worked</ThemedText>
+      <View style={styles.line} />
+      <Text style={styles.jobTitle}>Cognixia - Full Stack Java Developer</Text>
+
+      <Text style={styles.jobTitle}>SportKids - Instructuor | Coach</Text>
     </ScrollView>
   );
 }
