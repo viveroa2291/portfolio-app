@@ -8,9 +8,27 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import styles from '../styles/about';
+import RenderHtml from 'react-native-render-html';
 
 export default function AboutScreen() {
 
+  const cognixiaContent =  
+  `
+  <ul style="width: 95%; font-size: 12px;">
+      <li>
+        Cognixia’s JUMP program is a hyper-intense technical training program that gives top STEM talent from across the U.S. the equivalent of 12-18 months of industry experience. Not only do they up-skill their technical abilities, they also evolve their digital mindset to successfully adapt and utilize technology in an efficient manner so they can JUMP start their careers via deployment with Collabera clients.</li>
+      <li>Design Flexibility – experience with DAO and DTO design patterns, JDBC, JPA and Hibernate for interfacing with Data Persistence.</li>
+      <li>Collaborative Development – used Git CLI and GitHub under AGILE Methodology with teammates to develop a Full Stack Application.</li>
+    </ul>
+  `
+  const sportContent =
+  `
+  <ul style="width: 95%; font-size: 12px;">
+    <li>Displayed the ability to lead classes and train new employees to lead on their own.</li>
+    <li>Stressed teamwork, leadership, skill development, and the importance of having fun to children and young adults.</li>
+    <li>Always enforced safety first and proper procedures in case of an accident or injury.</li>
+  </ul>   
+  `
   const handleLinkPress = (url) => {
     Linking.openURL(url);
 }
@@ -45,8 +63,11 @@ export default function AboutScreen() {
       <ThemedText style={styles.header}>Where I've Worked</ThemedText>
       <View style={styles.line} />
       <Text style={styles.jobTitle}>Cognixia - Full Stack Java Developer</Text>
-
+      <Text style={styles.jobDate}>January 2023 - May 2023</Text>
+      <RenderHtml contentWidth={5} source={{html: cognixiaContent}} />
       <Text style={styles.jobTitle}>SportKids - Instructuor | Coach</Text>
+      <Text style={styles.jobDate}>June 2016 - August 2017</Text>
+      <RenderHtml contentWidth={5} source={{html: sportContent}} />
     </ScrollView>
   );
 }

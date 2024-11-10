@@ -57,6 +57,15 @@ const styles = StyleSheet.create(
             borderBottomWidth: 1,
             marginTop: 25,
             marginBottom: 25
+        },
+        jobTitle: {
+            fontSize: 20,
+            marginLeft: 10
+        },
+        jobDate: {
+            fontSize: 15,
+            marginTop: 10,
+            marginLeft: 25
         }
     }
 )
