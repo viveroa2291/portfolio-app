@@ -1,17 +1,24 @@
-import React, {useState} from 'react';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { View, Text, Linking, StyleSheet, Image, TextInput, ScrollView, Platform } from 'react-native';
-import { HelloWave } from '@/components/HelloWave';
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import React from 'react';
+import { View, Text, Linking, Image, ScrollView, FlatList } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 import styles from '../styles/about';
 import RenderHtml from 'react-native-render-html';
-
+import { WebView } from 'react-native-webview';
 export default function AboutScreen() {
-
+  const images = [
+    { uri: require('./PL-SVG/java.png') },
+    { uri: require('./PL-SVG/C++.png') },
+    { uri: require('./PL-SVG/html.png') },
+    { uri: require('./PL-SVG/CSS.png') },
+    { uri: require('./PL-SVG/javascript.png') },
+    { uri: require('./PL-SVG/react.png') },
+    { uri: require('./PL-SVG/php.png') },
+    { uri: require('./PL-SVG/kotlin.png') },
+    { uri: require('./PL-SVG/SQL.png') },
+    { uri: require('./PL-SVG/aws.png') },
+    { uri: require('./PL-SVG/git.png') },
+    // Add more if there are additional icons
+  ];
   const cognixiaContent =  
   `
   <ul style="width: 95%; font-size: 12px;">
@@ -29,6 +36,7 @@ export default function AboutScreen() {
     <li>Always enforced safety first and proper procedures in case of an accident or injury.</li>
   </ul>   
   `
+  const ageOfAI = `<iframe className='youtube-videos' width="350" height="157.5" src="https://www.youtube.com/embed/5dZ_lvDgevk?si=EfmImR9pl5V51jwk" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen/>`
   const handleLinkPress = (url) => {
     Linking.openURL(url);
 }
@@ -59,6 +67,14 @@ export default function AboutScreen() {
       <Text style={styles.aboutMe}>I'm living in Chicago, Illinois.</Text>
       <View style={styles.line} />
       <ThemedText style={styles.header}>My Tech Stack</ThemedText>
+      <View style={styles.techStack}>        
+        <FlatList data={images} numColumns={5} keyExtractor={(item, index) => index.toString()}
+        renderItem={({item}) => (
+          <Image style={styles.plImages} source={item.uri} resizeMode='contain' />
+        )}
+        scrollEnabled={false}
+        />
+      </View>
       <View style={styles.line} />
       <ThemedText style={styles.header}>Where I've Worked</ThemedText>
       <View style={styles.line} />
@@ -68,6 +84,18 @@ export default function AboutScreen() {
       <Text style={styles.jobTitle}>SportKids - Instructuor | Coach</Text>
       <Text style={styles.jobDate}>June 2016 - August 2017</Text>
       <RenderHtml contentWidth={5} source={{html: sportContent}} />
+      <ThemedText style={styles.header}>My Most Watched Films</ThemedText>
+      <View style={styles.line} />
+      <Text style={styles.filmTitle} onPress={() => handleLinkPress("https://m.youtube.com/watch?v=5dZ_lvDgevk")}>In the age of AI</Text>
+      <WebView style={styles.webView} source={{uri: "https://m.youtube.com/watch?v=5dZ_lvDgevk"}} 
+      mediaPlaybackRequiresUserAction={true} 
+      scrollEnabled={false}
+      />
+      <Text style={styles.filmTitle} onPress={() => handleLinkPress("https://www.youtube.com/watch?v=1cKE12LK4Eo&t=1255s")}>AI Tipping Point</Text>
+      <WebView style={styles.webView} source={{uri: "https://www.youtube.com/watch?v=1cKE12LK4Eo&t=1255s"}} 
+      mediaPlaybackRequiresUserAction={true} 
+      scrollEnabled={false}
+      />
     </ScrollView>
   );
 }

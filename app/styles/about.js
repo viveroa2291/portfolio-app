@@ -58,6 +58,16 @@ const styles = StyleSheet.create(
             marginTop: 25,
             marginBottom: 25
         },
+        techStack: {
+            marginTop: 10,
+            marginLeft: 'auto',
+            marginRight: 'auto'
+        },
+        plImages: {
+            marginTop: 10,
+            margin: 1,
+            height: 25
+        },
         jobTitle: {
             fontSize: 20,
             marginLeft: 10
@@ -66,6 +76,18 @@ const styles = StyleSheet.create(
             fontSize: 15,
             marginTop: 10,
             marginLeft: 25
+        },
+        filmTitle: {
+            textAlign: 'center',
+            marginTop: 25,
+        },
+        webView: {
+            height: 225,
+            width: '65%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginTop: 5,
+            marginTop: 25
         }
     }
 )

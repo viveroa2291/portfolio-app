@@ -24,7 +24,7 @@ export default function ProjectScreen() {
                             <Text style={styles.title} onPress={() => handleLinkPress(project.webviewSource)}>{project.title}</Text>
                             <View style={styles.line} />
                             {project.webviewSource && (
-                                <WebView style={styles.webview} source={{uri: project.webviewSource}} javaScriptEnabled={project.title == 'Blog Site'} scalesPageToFit={true} />
+                                <WebView style={styles.webview} source={{uri: project.webviewSource}} javaScriptEnabled={project.title == 'Blog Site'} scalesPageToFit={true} scrollEnabled={false} mediaPlaybackRequiresUserAction={true} />
                             )}
                             <View style={styles.lineTwo} />
                             <Text style={{textAlign: 'center', marginBottom: 5}}>Technologies Used:</Text>
