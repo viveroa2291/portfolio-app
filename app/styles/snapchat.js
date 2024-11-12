@@ -1,5 +1,6 @@
-import { StyleSheet } from "react-native";
-import DropDownPicker from "react-native-dropdown-picker";
+import { Dimensions, StyleSheet } from "react-native";
+
+const screenWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create(
     {
@@ -32,12 +33,24 @@ const styles = StyleSheet.create(
             width: '50%',
             textAlign: 'auto'
         },
+        lensesScroll: {
+            flex: 1,
+            marginTop: 10
+        },
+        lenses: {
+            paddingBottom: 50,
+        },
+        content: {
+            flex: 2
+        },
         lenseImage: {
             height: 100,
             marginTop: 10,
+            marginBottom: 10,
             marginLeft: 'auto',
             marginRight: 'auto',
-            resizeMode: 'contain'
+            resizeMode: 'contain',
+            width: '50%'
         },
         lenseLink: {
             textAlign: 'center',
