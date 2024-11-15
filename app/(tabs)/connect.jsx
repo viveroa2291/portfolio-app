@@ -1,18 +1,14 @@
 import {View, Text, Image, ScrollView, TouchableOpacity, Linking} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from '../styles/connect';
-import { useWindowDimensions } from 'react-native';
 export default function ConnectScreen() { 
-    const { width } = useWindowDimensions();
-
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Text style={styles.text}>Connect with me</Text>
             <View style={styles.line} />
             <View style={styles.imageContainer}>
                 <Image style={[styles.image, {borderRadius: 175}]} source={require('./images/professional-image.jpeg')} resizeMethod='cover' />
             </View>
-            <Text style={[styles.bottomText, { width: width * .5}]}>Here are some links on where you can connect with me.</Text>
             <View style={styles.icons}>
                 <TouchableOpacity onPress={() => Linking.openURL('https://www.linkedin.com/in/adan-vivero-a93970156/')}>
                     <Icon name="logo-linkedin" size={50} color="#0077B5" />
@@ -36,6 +32,7 @@ export default function ConnectScreen() {
                     <Icon name="logo-gitlab" size={50} color="orange" style={{marginLeft: 10}} />
                 </TouchableOpacity>
             </View>
-        </View>
+            <Text style={styles.bottomText}>Here are some links on where you can connect with me.</Text>
+        </ScrollView>
     )
 }

@@ -38,7 +38,7 @@ export default function SnapchatScreen() {
 
     const filteredLenses = lenses.filter(lense => selectedFilter === 'all' || lense.category.toLowerCase() === selectedFilter);
     return (
-        <View style={{flex: 1}}>
+        <View style={styles.container}>
             <ThemedText style={styles.header}>Snapchat Lenses</ThemedText>
             <View style={styles.line} />
             <Text style={styles.greeting}>Here are my Snapchat Lenses</Text>

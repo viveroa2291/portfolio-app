@@ -2,7 +2,8 @@ import { StyleSheet } from "react-native"
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: 'white'
     },
     text: {
         textAlign: 'center',
@@ -36,20 +37,22 @@ const styles = StyleSheet.create({
         left: -60,
         top: -70
     },
+    icons: {
+        flex: 1,
+        flexDirection: 'row',
+        marginTop: 50,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        padding: 10
+    },
     bottomText: {
         marginTop: 50,
         textAlign: 'center',
         marginLeft: 'auto',
-        marginRight: 'auto'
-    },
-    icons: {
-        flex: 1,
-        flexDirection: 'row',
-        marginTop: 20,
-        marginLeft: 'auto',
         marginRight: 'auto',
-        padding: 10
-    }
+        fontSize: 18,
+        width: '75%'
+    },
 });
 
 export default styles;

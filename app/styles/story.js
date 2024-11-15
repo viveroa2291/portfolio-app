@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create ({
+    container: {
+        backgroundColor: 'white'
+    },
     text: {
         textAlign: 'center',
         marginTop: 100,
@@ -40,29 +43,6 @@ const styles = StyleSheet.create ({
         padding: 25,
         borderWidth: 2, borderColor: 'black', borderRadius: 10
     },
-    /*
-    stories: {
-        flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around'
-    },
-    content: {
-        width: '48%', 
-        marginBottom: 20,
-        padding: 10,
-        backgroundColor: '#f9f9f9',
-        borderRadius: 5,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5
-    },
-    */
     images: {
         marginLeft: 'auto',
         marginRight: 'auto',
